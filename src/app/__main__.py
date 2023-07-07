@@ -25,3 +25,4 @@ async def startup() -> None:
             await db.close()
 
     app.dependency_overrides[get_session_stub] = get_db
+    return None

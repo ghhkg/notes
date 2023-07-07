@@ -15,6 +15,6 @@ def jwt_decode(token: str) -> None | dict[str, str]:
         return jwt.decode(
             token,
             secret_key,
-            algorithms="HS256")
+            algorithms=["HS256"])
     except DecodeError:
         return None

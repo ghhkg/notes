@@ -54,6 +54,7 @@ class UserAuthenticatorImpl(UserAuthenticator):
             right_passwd = user_info.passwd
             user_id = user_info.user_id
             return right_passwd, user_id
+        return None
 
 
 class NoteCreatorImpl(NoteCreator):
