@@ -6,7 +6,7 @@ from app.adapters.database.crud import UserCreatorImpl
 from app.adapters.JWT import jwt_encode
 from app.adapters.security.hasher import HasherImpl
 from app.use_cases.common.exceptions import UserExistError
-from app.use_cases.registration.use_case import RegistrationService
+from app.use_cases.registration import RegistrationService
 
 
 router = APIRouter()

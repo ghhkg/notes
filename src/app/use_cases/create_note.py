@@ -1,5 +1,5 @@
 from app.domain.models.note import Note
-from app.use_cases.common.interfaces import NoteCreator
+from app.use_cases.common.db_interfaces import NoteCreator
 from uuid import uuid4
 
 

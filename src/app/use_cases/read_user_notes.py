@@ -1,4 +1,4 @@
-from app.use_cases.common.interfaces import NotesReader
+from app.use_cases.common.db_interfaces import NotesReader
 
 
 class ReadNotesService:

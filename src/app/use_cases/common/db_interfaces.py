@@ -9,10 +9,9 @@ class UserCreator(Protocol):
     async def register(
             self,
             user: User) -> None:
-        raise NotImplementedError
+        raise NotImplementedError\
 
 
-class UserChecker(Protocol):
     @abstractmethod
     async def is_user_exist(
             self,
@@ -24,8 +23,7 @@ class UserAuthenticator(Protocol):
     @abstractmethod
     async def login(
             self,
-            username: str,
-            passwd: str) -> None | str:
+            username: str) -> None | tuple[str, str]:
         raise NotImplementedError
 
 
@@ -42,12 +40,4 @@ class NotesReader(Protocol):
     async def read_notes(
             self,
             owner_id: str) -> list[Note]:
-        raise NotImplementedError
-
-
-class Hasher(Protocol):
-    @abstractmethod
-    def hash_passwd(
-            self,
-            passwd: str) -> str:
         raise NotImplementedError

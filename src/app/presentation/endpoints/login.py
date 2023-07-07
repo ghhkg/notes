@@ -6,7 +6,7 @@ from app.adapters.database.crud import UserAuthenticatorImpl
 from app.adapters.JWT import jwt_encode
 from app.adapters.security.hasher import HasherImpl
 from app.use_cases.common.exceptions import UserDataIncorrect
-from app.use_cases.auth.use_case import AuthorizationService
+from app.use_cases.auth import AuthorizationService
 
 
 router = APIRouter()

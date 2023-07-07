@@ -4,7 +4,7 @@ from app.presentation.stubs import get_session_stub
 from app.presentation.schemas.note import JWT
 from app.adapters.database.crud import NotesReaderImpl
 from app.adapters.JWT import jwt_decode
-from app.use_cases.read_user_notes.use_case import ReadNotesService
+from app.use_cases.read_user_notes import ReadNotesService
 
 
 router = APIRouter()

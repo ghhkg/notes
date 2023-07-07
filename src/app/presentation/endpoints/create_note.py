@@ -4,7 +4,7 @@ from app.presentation.stubs import get_session_stub
 from app.presentation.schemas.note import Note
 from app.adapters.database.crud import NoteCreatorImpl
 from app.adapters.JWT import jwt_decode
-from app.use_cases.create_note.use_case import CreateNoteService
+from app.use_cases.create_note import CreateNoteService
 
 
 router = APIRouter()

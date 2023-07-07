@@ -3,16 +3,15 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.domain.models.user import User
 from app.domain.models.note import Note
 from app.adapters.database.models import Users, Notes
-from app.use_cases.common.interfaces import (
+from app.use_cases.common.db_interfaces import (
     UserCreator,
-    UserChecker,
     UserAuthenticator,
     NoteCreator,
     NotesReader
 )
 
 
-class UserCreatorImpl(UserCreator, UserChecker):
+class UserCreatorImpl(UserCreator):
     def __init__(
             self,
             session: AsyncSession) -> None:
@@ -47,17 +46,14 @@ class UserAuthenticatorImpl(UserAuthenticator):
 
     async def login(
             self,
-            username: str,
-            passwd: str) -> None | str:
+            username: str) -> None | tuple[str, str]:
         stmt = select(Users).where(
             Users.login == username)
-        user_info = None
-        right_passwd = None
         for row in await self.session.execute(stmt):
             user_info = row[0]
             right_passwd = user_info.passwd
-        if right_passwd == passwd:
-            return user_info.user_id
+            user_id = user_info.user_id
+            return right_passwd, user_id
 
 
 class NoteCreatorImpl(NoteCreator):
